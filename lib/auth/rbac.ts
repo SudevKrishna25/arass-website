@@ -1,0 +1,116 @@
+/**
+ * ARASS EVENTS — Role-Based Access Control (RBAC)
+ */
+
+import { UserRole } from '../events-db/types';
+
+export type Permission =
+  | 'ORG_MANAGE'
+  | 'EVENT_CREATE'
+  | 'EVENT_READ'
+  | 'EVENT_UPDATE'
+  | 'EVENT_DELETE'
+  | 'EVENT_PUBLISH'
+  | 'PARTICIPANT_READ'
+  | 'PARTICIPANT_UPDATE'
+  | 'PARTICIPANT_EXPORT'
+  | 'ROUND_CREATE'
+  | 'ROUND_UPDATE'
+  | 'ROUND_PUBLISH'
+  | 'SUBMISSION_READ'
+  | 'SUBMISSION_CREATE'
+  | 'SUBMISSION_EVALUATE'
+  | 'CERTIFICATE_CREATE'
+  | 'CERTIFICATE_REVOKE'
+  | 'ANALYTICS_READ'
+  | 'AUDIT_READ'
+  | 'CONTENT_READ'
+  | 'CONTENT_CREATE'
+  | 'CONTENT_UPDATE'
+  | 'CONTENT_DELETE'
+  | 'MEDIA_MANAGE'
+  | 'USER_MANAGE'
+  | 'ROLE_MANAGE'
+  | 'NAVIGATION_MANAGE'
+  | 'SETTINGS_MANAGE';
+
+export const ROLE_PERMISSIONS: Record<UserRole, Permission[]> = {
+  SUPER_ADMIN: [
+    'ORG_MANAGE',
+    'EVENT_CREATE',
+    'EVENT_READ',
+    'EVENT_UPDATE',
+    'EVENT_DELETE',
+    'EVENT_PUBLISH',
+    'PARTICIPANT_READ',
+    'PARTICIPANT_UPDATE',
+    'PARTICIPANT_EXPORT',
+    'ROUND_CREATE',
+    'ROUND_UPDATE',
+    'ROUND_PUBLISH',
+    'SUBMISSION_READ',
+    'SUBMISSION_CREATE',
+    'SUBMISSION_EVALUATE',
+    'CERTIFICATE_CREATE',
+    'CERTIFICATE_REVOKE',
+    'ANALYTICS_READ',
+    'AUDIT_READ',
+    'CONTENT_READ',
+    'CONTENT_CREATE',
+    'CONTENT_UPDATE',
+    'CONTENT_DELETE',
+    'MEDIA_MANAGE',
+    'USER_MANAGE',
+    'ROLE_MANAGE',
+    'NAVIGATION_MANAGE',
+    'SETTINGS_MANAGE',
+  ],
+  ORGANIZER: [
+    'EVENT_CREATE',
+    'EVENT_READ',
+    'EVENT_UPDATE',
+    'EVENT_DELETE',
+    'EVENT_PUBLISH',
+    'PARTICIPANT_READ',
+    'PARTICIPANT_UPDATE',
+    'PARTICIPANT_EXPORT',
+    'ROUND_CREATE',
+    'ROUND_UPDATE',
+    'ROUND_PUBLISH',
+    'SUBMISSION_READ',
+    'SUBMISSION_EVALUATE',
+    'CERTIFICATE_CREATE',
+    'CERTIFICATE_REVOKE',
+    'ANALYTICS_READ',
+    'AUDIT_READ',
+    'CONTENT_READ',
+    'CONTENT_CREATE',
+    'CONTENT_UPDATE',
+    'CONTENT_DELETE',
+    'MEDIA_MANAGE',
+    'NAVIGATION_MANAGE',
+  ],
+  MANAGER: [
+    'EVENT_READ',
+    'EVENT_UPDATE',
+    'PARTICIPANT_READ',
+    'PARTICIPANT_EXPORT',
+    'ROUND_CREATE',
+    'ROUND_UPDATE',
+    'SUBMISSION_READ',
+    'CERTIFICATE_CREATE',
+    'ANALYTICS_READ',
+  ],
+  EVALUATOR: ['EVENT_READ', 'SUBMISSION_READ', 'SUBMISSION_EVALUATE'],
+  VIEWER: ['EVENT_READ', 'PARTICIPANT_READ', 'SUBMISSION_READ', 'ANALYTICS_READ'],
+  PARTICIPANT: ['EVENT_READ', 'SUBMISSION_CREATE', 'SUBMISSION_READ'],
+};
+
+export function hasPermission(role: UserRole, permission: Permission): boolean {
+  const permissions = ROLE_PERMISSIONS[role] || [];
+  return permissions.includes(permission);
+}
+
+export function hasAnyRole(role: UserRole, allowedRoles: UserRole[]): boolean {
+  return allowedRoles.includes(role);
+}

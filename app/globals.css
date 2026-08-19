@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #020914;
+    --bg-deep: #061421;
+    --surface: #081D2E;
+    --ocean-blue: #13507A;
+    --electric-blue: #1E90FF;
+    --electric-cyan: #00D4FF;
+    --text-primary: #E6F7FF;
+    --text-secondary: #A7C0D2;
+  }
+
+  html,
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    scroll-behavior: auto !important; /* Managed by Lenis */
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Lenis smooth scrolling helper styles */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
+
+/* Custom Technological Utility Classes */
+@layer utilities {
+  .tech-glass-panel {
+    background: rgba(8, 29, 46, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 212, 255, 0.15);
+  }
+
+  .tech-glass-card {
+    background: linear-gradient(135deg, rgba(8, 29, 46, 0.6) 0%, rgba(6, 20, 33, 0.8) 100%);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(30, 144, 255, 0.2);
+    box-shadow: 0 10px 30px -10px rgba(2, 9, 20, 0.8);
+  }
+
+  .text-glow-cyan {
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.6), 0 0 40px rgba(0, 212, 255, 0.2);
+  }
+
+  .text-glow-blue {
+    text-shadow: 0 0 20px rgba(30, 144, 255, 0.6);
+  }
+
+  .border-glow-cyan {
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  }
+
+  .bg-radial-depth {
+    background: radial-gradient(circle at 50% 40%, rgba(19, 80, 122, 0.25) 0%, rgba(6, 20, 33, 0.6) 50%, rgba(2, 9, 20, 0.95) 100%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020914;
+}
+::-webkit-scrollbar-thumb {
+  background: #13507A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00D4FF;
+}
