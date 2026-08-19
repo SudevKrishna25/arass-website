@@ -1,0 +1,28 @@
+{
+  "loadTimeMs": 669,
+  "fps": 61,
+  "webglMetrics": {
+    "canvasWidth": 0,
+    "canvasHeight": 0,
+    "clientWidth": 0,
+    "clientHeight": 0,
+    "dpr": 1,
+    "particleCount": 600
+  },
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "networkErrors": [
+    "GET http://localhost:3001/_next/static/css/app/layout.css?v=1786902948481 - net::ERR_ABORTED",
+    "GET http://localhost:3001/_next/static/chunks/webpack.js?v=1786902948481 - net::ERR_ABORTED",
+    "GET http://localhost:3001/_next/static/chunks/main-app.js?v=1786902948481 - net::ERR_ABORTED",
+    "GET http://localhost:3001/_next/static/chunks/app-pages-internals.js - net::ERR_ABORTED",
+    "GET http://localhost:3001/_next/static/chunks/app/page.js - net::ERR_ABORTED",
+    "GET http://localhost:3001/_next/static/chunks/app/layout.js - net::ERR_ABORTED"
+  ]
+}
