@@ -133,7 +133,7 @@ export default function HorizonPage() {
             CHAPTER 06 // PLANETARY SCALE
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black tracking-tight leading-[1.05] text-primary-text">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.08] text-primary-text">
             THE PLANETARY <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan via-white to-electric-cyan drop-shadow-[0_0_40px_rgba(0,212,255,0.5)]">
               HORIZON

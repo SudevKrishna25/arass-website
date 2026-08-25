@@ -65,7 +65,7 @@ export default function AboutPage() {
             ABOUT ARASS // WHO WE ARE
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black tracking-tight leading-[1.05] text-white">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.08] text-white">
             WE ENGINEER <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan via-white to-electric-cyan drop-shadow-[0_0_35px_rgba(0,212,255,0.5)]">
               WHAT THE FUTURE REQUIRES.

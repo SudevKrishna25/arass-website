@@ -121,7 +121,7 @@ function EventsDiscoveryContent() {
             <span>ARASS GLOBAL COMPETITION PLATFORM</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight text-white leading-tight">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-heading font-black tracking-tight text-white leading-tight">
             BUILD. COMPETE. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan via-white to-electric-cyan drop-shadow-[0_0_30px_rgba(0,212,255,0.6)]">
               CREATE IMPACT.

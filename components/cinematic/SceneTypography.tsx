@@ -42,13 +42,13 @@ export function SceneTypography({
         )}
 
         {/* Cinematic Display Title */}
-        <h2 className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.08] text-white drop-shadow-[0_0_45px_rgba(0,212,255,0.35)] uppercase max-w-full break-words">
+        <h2 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-white drop-shadow-[0_0_40px_rgba(0,212,255,0.35)] uppercase max-w-full break-words">
           {title}
         </h2>
 
         {/* Minimal Supporting Statement */}
         {statement && (
-          <p className="font-sans text-sm sm:text-lg md:text-xl text-secondary-text/90 font-light tracking-wide max-w-2xl text-balance leading-relaxed">
+          <p className="font-sans text-xs sm:text-base md:text-lg text-secondary-text/90 font-light tracking-wide max-w-2xl text-balance leading-relaxed">
             {statement}
           </p>
         )}

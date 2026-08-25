@@ -158,7 +158,7 @@ export default function MissionPage() {
 
           <h1
             ref={heroTitleRef}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black tracking-tight leading-[1.05] text-primary-text"
+            className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.08] text-primary-text"
           >
             THE FUTURE <br />
             <span className="text-white font-bold tracking-tight drop-shadow-[0_2px_20px_rgba(0,0,0,0.9)]">

@@ -490,16 +490,16 @@ export function HomeCinematicExperience() {
               SCENE 01: HERO WITH SPACIOUS LUXURY EDITORIAL TYPOGRAPHY
               =================================================================== */}
           <div
-            className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 pt-10 sm:pt-0 text-center will-change-transform"
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 pt-16 sm:pt-12 text-center will-change-transform"
             style={{
               opacity: scene1Opacity,
               transform: `translateY(${scene1Y}px) scale(${scene1Scale.toFixed(3)})`,
               pointerEvents: scene1Opacity > 0.3 ? 'auto' : 'none',
             }}
           >
-            <div className="relative max-w-5xl mx-auto flex flex-col items-center justify-center space-y-5 sm:space-y-7">
-              {/* Grand Signature Tagline (Zero Overlap with Header) */}
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-heading font-black tracking-[-0.03em] leading-[1.04] text-white select-none">
+            <div className="relative max-w-4xl mx-auto flex flex-col items-center justify-center space-y-4 sm:space-y-5">
+              {/* Refined Luxury Tagline */}
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[4.25rem] xl:text-[4.75rem] font-heading font-black tracking-[-0.03em] leading-[1.08] text-white select-none">
                 <span className="inline-block transition-transform duration-300 drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
                   WE DON&apos;T FOLLOW
                 </span>
@@ -508,23 +508,23 @@ export function HomeCinematicExperience() {
                   THE FUTURE.
                 </span>
                 <br />
-                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan via-white to-electric-cyan drop-shadow-[0_0_45px_rgba(0,212,255,0.85)] animate-pulse">
+                <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan via-white to-electric-cyan drop-shadow-[0_0_40px_rgba(0,212,255,0.85)] animate-pulse">
                   WE BUILD IT.
                 </span>
               </h1>
 
               {/* High-Tech System Description with Balanced Whitespace */}
-              <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base font-sans text-white/80 leading-relaxed font-light drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">
+              <p className="max-w-xl mx-auto text-xs sm:text-sm font-sans text-white/80 leading-relaxed font-light drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">
                 ARASS is an independent technology powerhouse engineering sovereign AI systems,
                 mission-critical digital platforms, multi-agent automation, and sensory digital flagship ecosystems.
               </p>
 
               {/* Holographic CTAs */}
-              <div className="pt-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+              <div className="pt-1 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
                 <PageTransitionLink
                   href="/contact"
                   cursor="explore"
-                  className="group relative inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-electric-cyan text-background font-mono font-bold text-xs sm:text-sm tracking-widest transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(0,212,255,0.6)] hover:shadow-[0_0_40px_rgba(0,212,255,0.9)]"
+                  className="group relative inline-flex items-center gap-2.5 px-7 sm:px-9 py-3 sm:py-3.5 rounded-full bg-electric-cyan text-background font-mono font-bold text-xs sm:text-sm tracking-widest transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(0,212,255,0.6)] hover:shadow-[0_0_40px_rgba(0,212,255,0.9)]"
                 >
                   <span>START A PROJECT</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -533,7 +533,7 @@ export function HomeCinematicExperience() {
                 <button
                   onClick={scrollToFirstWorld}
                   data-cursor="explore"
-                  className="group inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full border border-white/20 hover:border-electric-cyan bg-[#020b18]/60 backdrop-blur-xl text-white font-mono font-medium text-xs sm:text-sm tracking-widest hover:text-electric-cyan transition-all duration-300 hover:bg-[#020b18]/80 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+                  className="group inline-flex items-center gap-2.5 px-7 sm:px-9 py-3 sm:py-3.5 rounded-full border border-white/20 hover:border-electric-cyan bg-[#020b18]/60 backdrop-blur-xl text-white font-mono font-medium text-xs sm:text-sm tracking-widest hover:text-electric-cyan transition-all duration-300 hover:bg-[#020b18]/80 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
                 >
                   <span>EXPLORE DISCIPLINES</span>
                   <ArrowDownRight className="w-4 h-4 text-electric-cyan transition-transform duration-300 group-hover:translate-y-0.5" />
@@ -541,29 +541,29 @@ export function HomeCinematicExperience() {
               </div>
 
               {/* Clean 4-Discipline Indicator Strip */}
-              <div className="pt-6 border-t border-white/10 max-w-4xl w-full grid grid-cols-2 md:grid-cols-4 gap-3 text-[10px] sm:text-xs font-mono tracking-wider text-white/70 uppercase">
-                <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-1 group hover:border-electric-cyan/40 transition-colors">
+              <div className="pt-4 border-t border-white/10 max-w-3xl w-full grid grid-cols-2 md:grid-cols-4 gap-2.5 text-[10px] sm:text-xs font-mono tracking-wider text-white/70 uppercase">
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-0.5 group hover:border-electric-cyan/40 transition-colors">
                   <div className="flex items-center gap-1.5 text-electric-cyan font-bold">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan" />
                     <span>AI SYSTEMS</span>
                   </div>
                   <span className="text-[9px] text-white/40">Neural Decision Core</span>
                 </div>
-                <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-1 group hover:border-electric-cyan/40 transition-colors">
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-0.5 group hover:border-electric-cyan/40 transition-colors">
                   <div className="flex items-center gap-1.5 text-electric-cyan font-bold">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan" />
                     <span>DIGITAL PRODUCTS</span>
                   </div>
                   <span className="text-[9px] text-white/40">Distributed Mesh</span>
                 </div>
-                <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-1 group hover:border-electric-cyan/40 transition-colors">
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-0.5 group hover:border-electric-cyan/40 transition-colors">
                   <div className="flex items-center gap-1.5 text-electric-cyan font-bold">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan" />
                     <span>AUTOMATION</span>
                   </div>
                   <span className="text-[9px] text-white/40">Autonomous Agent Mesh</span>
                 </div>
-                <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-1 group hover:border-electric-cyan/40 transition-colors">
+                <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-0.5 group hover:border-electric-cyan/40 transition-colors">
                   <div className="flex items-center gap-1.5 text-electric-cyan font-bold">
                     <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan" />
                     <span>EXPERIENCES</span>
