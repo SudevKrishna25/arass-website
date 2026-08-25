@@ -20,6 +20,11 @@ export default function EventRegistrationPage() {
   const [error, setError] = useState<string | null>(null);
   const [step, setStep] = useState<number>(1);
 
+  // Google Simulation State
+  const [showGoogleModal, setShowGoogleModal] = useState(false);
+  const [customGoogleEmail, setCustomGoogleEmail] = useState('');
+  const [customGoogleName, setCustomGoogleName] = useState('');
+
   // Form State
   const [user, setUser] = useState<any>(null);
   const [email, setEmail] = useState('');
@@ -31,6 +36,28 @@ export default function EventRegistrationPage() {
   const [teamCode, setTeamCode] = useState('');
   const [customAnswers, setCustomAnswers] = useState<Record<string, any>>({});
   const [agreeTerms, setAgreeTerms] = useState(false);
+
+  const handleGoogleLogin = async (selectedEmail: string, selectedName: string) => {
+    setError(null);
+    try {
+      const res = await fetch('/api/events/auth/google', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: selectedEmail, name: selectedName }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Google sign-in failed');
+      
+      setUser(data.user);
+      setName(data.profile?.name || selectedName);
+      setEmail(data.user.email);
+      setCollege(data.profile?.college || '');
+      setShowGoogleModal(false);
+      setStep(2);
+    } catch (err: any) {
+      setError(err.message || 'Google Auth error.');
+    }
+  };
 
   useEffect(() => {
     // Check auth status
@@ -211,65 +238,100 @@ export default function EventRegistrationPage() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleAuthSubmit} className="space-y-4">
-                  <h3 className="text-sm font-mono tracking-wider text-white uppercase">Enter Your Credentials</h3>
-                  <div className="space-y-3">
-                    <div>
-                      <label className="block text-xs font-mono text-white/70 mb-1">Full Name</label>
-                      <input
-                        type="text"
-                        required
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        placeholder="Alex Chen"
-                        className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
+                <div className="space-y-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowGoogleModal(true)}
+                    className="w-full py-3 rounded-full bg-white hover:bg-white/95 text-black font-mono font-bold text-xs tracking-wider flex items-center justify-center gap-2 transition-all shadow-[0_0_15px_rgba(255,255,255,0.15)]"
+                  >
+                    {/* Google Icon */}
+                    <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                      <path
+                        fill="#EA4335"
+                        d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.47 15.01.5 12 .5 7.42.5 3.51 3.12 1.6 6.94l3.96 3.07C6.47 7.28 9.03 5.04 12 5.04z"
                       />
-                    </div>
+                      <path
+                        fill="#4285F4"
+                        d="M23.49 12.27c0-.81-.07-1.59-.2-2.35H12v4.51h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.7 2.87c2.16-1.99 3.73-4.92 3.73-8.61z"
+                      />
+                      <path
+                        fill="#FBBC05"
+                        d="M5.56 14.86a7.1 7.1 0 0 1 0-4.32L1.6 7.47a11.96 11.96 0 0 0 0 9.06l3.96-3.07z"
+                      />
+                      <path
+                        fill="#34A853"
+                        d="M12 18.96c-2.97 0-5.53-2.24-6.44-4.97L1.6 17.06C3.51 20.88 7.42 23.5 12 23.5c3.08 0 5.67-1.02 7.56-2.77l-3.7-2.87c-1.04.7-2.38 1.1-3.86 1.1z"
+                      />
+                    </svg>
+                    <span>SIGN IN WITH GOOGLE</span>
+                  </button>
 
-                    <div>
-                      <label className="block text-xs font-mono text-white/70 mb-1">Email Address</label>
-                      <input
-                        type="email"
-                        required
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="alex@university.edu"
-                        className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono text-white/70 mb-1">Password</label>
-                      <input
-                        type="password"
-                        required
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="••••••••••••"
-                        className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-mono text-white/70 mb-1">College / University</label>
-                      <input
-                        type="text"
-                        required
-                        value={college}
-                        onChange={(e) => setCollege(e.target.value)}
-                        placeholder="Stanford University"
-                        className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
-                      />
-                    </div>
+                  <div className="flex items-center gap-3 my-4">
+                    <div className="flex-1 h-px bg-white/10" />
+                    <span className="text-[10px] font-mono text-white/40">OR USE EMAIL</span>
+                    <div className="flex-1 h-px bg-white/10" />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="w-full py-3 rounded-full bg-electric-cyan text-background font-mono font-bold text-xs tracking-wider hover:shadow-[0_0_20px_rgba(0,212,255,0.7)] transition-all"
-                  >
-                    AUTHENTICATE & PROCEED →
-                  </button>
-                </form>
+                  <form onSubmit={handleAuthSubmit} className="space-y-4">
+                    <h3 className="text-sm font-mono tracking-wider text-white uppercase">Enter Your Credentials</h3>
+                    <div className="space-y-3">
+                      <div>
+                        <label className="block text-xs font-mono text-white/70 mb-1">Full Name</label>
+                        <input
+                          type="text"
+                          required
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          placeholder="Alex Chen"
+                          className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-mono text-white/70 mb-1">Email Address</label>
+                        <input
+                          type="email"
+                          required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          placeholder="alex@university.edu"
+                          className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-mono text-white/70 mb-1">Password</label>
+                        <input
+                          type="password"
+                          required
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          placeholder="••••••••••••"
+                          className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-mono text-white/70 mb-1">College / University</label>
+                        <input
+                          type="text"
+                          required
+                          value={college}
+                          onChange={(e) => setCollege(e.target.value)}
+                          placeholder="Stanford University"
+                          className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
+                        />
+                      </div>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full py-3 rounded-full bg-electric-cyan text-background font-mono font-bold text-xs tracking-wider hover:shadow-[0_0_20px_rgba(0,212,255,0.7)] transition-all"
+                    >
+                      AUTHENTICATE & PROCEED →
+                    </button>
+                  </form>
+                </div>
               )}
             </div>
           )}
@@ -424,6 +486,100 @@ export default function EventRegistrationPage() {
           )}
         </div>
       </main>
+
+      {/* Simulated Google Accounts Selector Modal */}
+      {showGoogleModal && (
+        <div className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="max-w-md w-full bg-[#020b18] border border-white/20 p-6 rounded-3xl space-y-4 font-mono text-xs text-white">
+            <div className="flex justify-between items-center border-b border-white/10 pb-3">
+              <h3 className="text-sm font-bold text-white tracking-widest uppercase flex items-center gap-2">
+                {/* Google Logo SVG */}
+                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                  <path
+                    fill="#EA4335"
+                    d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.47 15.01.5 12 .5 7.42.5 3.51 3.12 1.6 6.94l3.96 3.07C6.47 7.28 9.03 5.04 12 5.04z"
+                  />
+                  <path
+                    fill="#4285F4"
+                    d="M23.49 12.27c0-.81-.07-1.59-.2-2.35H12v4.51h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.7 2.87c2.16-1.99 3.73-4.92 3.73-8.61z"
+                  />
+                  <path
+                    fill="#FBBC05"
+                    d="M5.56 14.86a7.1 7.1 0 0 1 0-4.32L1.6 7.47a11.96 11.96 0 0 0 0 9.06l3.96-3.07z"
+                  />
+                  <path
+                    fill="#34A853"
+                    d="M12 18.96c-2.97 0-5.53-2.24-6.44-4.97L1.6 17.06C3.51 20.88 7.42 23.5 12 23.5c3.08 0 5.67-1.02 7.56-2.77l-3.7-2.87c-1.04.7-2.38 1.1-3.86 1.1z"
+                  />
+                </svg>
+                <span>CHOOSE A GOOGLE ACCOUNT</span>
+              </h3>
+              <button
+                onClick={() => setShowGoogleModal(false)}
+                className="text-white/60 hover:text-white"
+              >
+                CLOSE
+              </button>
+            </div>
+
+            <p className="text-white/60 font-sans font-light">
+              Select a pre-configured Google account for sandbox event registration or enter a custom one:
+            </p>
+
+            <div className="space-y-2">
+              {[
+                { name: 'Alex Chen', email: 'alex.chen@sovereign-tech.org' },
+                { name: 'Marcus Lindqvist', email: 'marcus.systems@gmail.com' },
+              ].map((acc) => (
+                <button
+                  key={acc.email}
+                  onClick={() => handleGoogleLogin(acc.email, acc.name)}
+                  className="w-full p-4 rounded-2xl border border-white/10 hover:border-electric-cyan/40 bg-[#01050d] text-left flex justify-between items-center group transition-colors"
+                >
+                  <div>
+                    <div className="text-white font-bold group-hover:text-electric-cyan transition-colors">{acc.name}</div>
+                    <div className="text-white/50 text-[10px]">{acc.email}</div>
+                  </div>
+                  <span className="text-[10px] font-mono text-electric-cyan/70 group-hover:text-electric-cyan uppercase">
+                    SELECT →
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            <div className="pt-2 border-t border-white/10 space-y-3">
+              <span className="text-[10px] font-mono text-white/50 uppercase">OR CUSTOM ACCOUNT</span>
+              <div className="space-y-2">
+                <input
+                  type="text"
+                  placeholder="Full Name (e.g. John Doe)"
+                  value={customGoogleName}
+                  onChange={(e) => setCustomGoogleName(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-xs font-mono focus:outline-none focus:border-electric-cyan"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address (e.g. john@gmail.com)"
+                  value={customGoogleEmail}
+                  onChange={(e) => setCustomGoogleEmail(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-xs font-mono focus:outline-none focus:border-electric-cyan"
+                />
+                <button
+                  onClick={() => {
+                    if (customGoogleEmail && customGoogleName) {
+                      handleGoogleLogin(customGoogleEmail, customGoogleName);
+                    }
+                  }}
+                  disabled={!customGoogleEmail || !customGoogleName}
+                  className="w-full py-2.5 rounded-xl bg-electric-cyan disabled:opacity-50 text-background font-mono font-bold text-xs"
+                >
+                  CONNECT CUSTOM GOOGLE ACCOUNT →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

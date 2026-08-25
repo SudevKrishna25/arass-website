@@ -176,7 +176,7 @@ function EventsDiscoveryContent() {
           </div>
 
           {/* Filter Selects */}
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             {/* Mode Select */}
             <select
               value={selectedMode}

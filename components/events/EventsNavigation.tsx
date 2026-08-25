@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Sparkles, Trophy, Code2, Users, Search, Menu, X, ArrowRight, UserCircle, LogOut, LayoutDashboard, Calendar } from 'lucide-react';
+import { Sparkles, Trophy, Code2, Users, Search, Menu, X, ArrowRight, UserCircle, LogOut, LayoutDashboard, Calendar, Award } from 'lucide-react';
 
 export function EventsNavigation() {
   const pathname = usePathname();
@@ -48,6 +48,7 @@ export function EventsNavigation() {
     { name: 'All Events', href: '/events', icon: Calendar },
     { name: 'Hackathons', href: '/events?eventType=HACKATHON', icon: Code2 },
     { name: 'Competitions', href: '/events?eventType=IDEATHON', icon: Trophy },
+    { name: 'Tech Reviews', href: '/tech-review', icon: Award },
     { name: 'My Events', href: '/my-events', icon: Users, authOnly: true },
   ];
 
@@ -56,10 +57,10 @@ export function EventsNavigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-6">
-          <Link href="/events" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <span className="w-2.5 h-2.5 rounded-full bg-electric-cyan animate-pulse group-hover:shadow-[0_0_12px_#00d4ff]" />
             <span className="font-heading font-black tracking-wider text-lg sm:text-xl text-white group-hover:text-electric-cyan transition-colors">
-              ARASS <span className="text-electric-cyan font-mono text-xs font-semibold px-2 py-0.5 rounded border border-electric-cyan/30 bg-electric-cyan/10">EVENTS</span>
+              ARASS <span className="hidden sm:inline-block text-electric-cyan font-mono text-xs font-semibold px-2 py-0.5 rounded border border-electric-cyan/30 bg-electric-cyan/10">EVENTS</span>
             </span>
           </Link>
 
@@ -120,7 +121,7 @@ export function EventsNavigation() {
             <div className="flex items-center gap-2">
               <Link
                 href="/login"
-                className="px-4 py-1.5 rounded-full border border-white/20 hover:border-electric-cyan/70 text-white/80 hover:text-white text-xs font-mono tracking-wide transition-colors"
+                className="hidden sm:inline-block px-4 py-1.5 rounded-full border border-white/20 hover:border-electric-cyan/70 text-white/80 hover:text-white text-xs font-mono tracking-wide transition-colors"
               >
                 LOGIN
               </Link>

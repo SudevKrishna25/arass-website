@@ -99,15 +99,17 @@ export default function TechnologiesPage() {
     cards.forEach((card) => {
       gsap.fromTo(
         card,
-        { opacity: 0, y: 30 },
+        { opacity: 0, y: 50, scale: 0.95, rotationX: 10 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          ease: 'power2.out',
+          scale: 1,
+          rotationX: 0,
+          duration: 1.0,
+          ease: 'power3.out',
           scrollTrigger: {
             trigger: card,
-            start: 'top 85%',
+            start: 'top 90%',
             toggleActions: 'play none none reverse',
           },
         }

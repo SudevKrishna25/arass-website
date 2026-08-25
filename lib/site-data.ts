@@ -136,8 +136,18 @@ export const SECONDARY_NAV_ITEMS: NavItem[] = [
     image: '/images/arass_frontier_build_lab.jpg',
   },
   {
-    id: 'contact',
+    id: 'tech-review',
     num: '10',
+    name: 'TECH REVIEW',
+    href: '/tech-review',
+    title: 'TECHNOLOGY SYSTEMS AUDIT',
+    category: 'secondary',
+    description: 'Verifiable technology readiness level audits and peer evaluations.',
+    image: '/images/arass_frontier_build_lab.jpg',
+  },
+  {
+    id: 'contact',
+    num: '11',
     name: 'CONTACT',
     href: '/contact',
     title: 'INSTITUTIONAL ACCESS',
@@ -537,3 +547,76 @@ export const INSIGHTS_DATA: InsightArticle[] = [
     ],
   },
 ];
+
+export interface TechReview {
+  id: string;
+  code: string;
+  name: string;
+  domain: string;
+  trl: number;
+  rating: string;
+  status: string;
+  assessor: string;
+  lastAudited: string;
+  summary: string;
+  evaluationRubrics: { rubricName: string; score: number; maxScore: number; feedback: string }[];
+  technicalFidelity: 'HIGH' | 'MEDIUM-HIGH' | 'MEDIUM' | 'LOW';
+}
+
+export const TECH_REVIEWS_DATA: TechReview[] = [
+  {
+    id: 'rev-ts-01',
+    code: 'TS-01',
+    name: 'COMPUTATIONAL INTELLIGENCE',
+    domain: 'Photonic Mesh Tensor Interconnect',
+    trl: 7,
+    rating: 'A+',
+    status: 'VERIFIED & AUDITED',
+    assessor: 'ARASS Advanced Computing Directorate',
+    lastAudited: '2026-07-14',
+    summary: 'Silicon photonic waveguide mesh evaluated for matrix tensor multiplications. Demonstrated sub-nanosecond processing latency with zero thermal dissipation in passive operations.',
+    evaluationRubrics: [
+      { rubricName: 'Waveguide Propagation Loss', score: 94, maxScore: 100, feedback: 'Negligible signal loss across 12-channel meshes.' },
+      { rubricName: 'Optical-to-Electrical Conversion Delay', score: 98, maxScore: 100, feedback: 'Latency meets or exceeds simulated models at sub-2.4ns.' },
+      { rubricName: 'Dynamic Matrix Multiplier Fidelity', score: 90, maxScore: 100, feedback: 'Acoustic vibrational interference minor but within tolerances.' }
+    ],
+    technicalFidelity: 'HIGH'
+  },
+  {
+    id: 'rev-ts-03',
+    code: 'TS-03',
+    name: 'ENERGY SYSTEMS',
+    domain: 'Quasi-Isodynamic REBCO Stellarator Magnet Mesh',
+    trl: 6,
+    rating: 'A',
+    status: 'UNDER ACTIVE CALIBRATION',
+    assessor: 'ARASS High-Energy Physics Group',
+    lastAudited: '2026-08-01',
+    summary: 'Superconducting 3D REBCO magnetic field grids evaluated for steady-state continuous plasma containment. Attained steady-state peak field parameters of 26.4 Tesla.',
+    evaluationRubrics: [
+      { rubricName: 'Superconducting Coherence Limit', score: 88, maxScore: 100, feedback: 'Excellent cryogenic stability in nitrogen-helium envelopes.' },
+      { rubricName: 'Magnetic Field Topology Symmetry', score: 92, maxScore: 100, feedback: 'Symmetric geometry eliminates plasma edge perturbation modes.' },
+      { rubricName: 'Plasma Energy Confinement (Q-factor)', score: 85, maxScore: 100, feedback: 'Preliminary target Q > 3.5 is mathematically model-consistent.' }
+    ],
+    technicalFidelity: 'MEDIUM-HIGH'
+  },
+  {
+    id: 'rev-ts-05',
+    code: 'TS-05',
+    name: 'AUTONOMOUS SYSTEMS',
+    domain: 'Neuromorphic Proprioceptive Actuator Network',
+    trl: 7,
+    rating: 'A-',
+    status: 'VERIFIED & AUDITED',
+    assessor: 'ARASS Robotics and Autonomous Agents Unit',
+    lastAudited: '2026-07-29',
+    summary: 'Wafer-scale proprioceptive actuator control loops evaluated in real-time humanoid gait simulation and mechanical mockups. Achieved control loop updates under 0.8 ms.',
+    evaluationRubrics: [
+      { rubricName: 'Actuator Proprioception Response', score: 95, maxScore: 100, feedback: 'Under-millisecond sensory loops verify real-time stabilization.' },
+      { rubricName: 'Edge Neuromorphic Compute Efficiency', score: 89, maxScore: 100, feedback: 'Onboard wafer consumes less than 12W under high dynamic load.' },
+      { rubricName: 'Payload Stress Endurance Test', score: 91, maxScore: 100, feedback: 'Sustained 140kg payload loads without mechanical structural anomalies.' }
+    ],
+    technicalFidelity: 'HIGH'
+  }
+];
+

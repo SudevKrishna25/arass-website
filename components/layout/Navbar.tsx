@@ -111,7 +111,7 @@ export function Navbar() {
           className="flex items-center gap-3 group focus:outline-none focus:ring-1 focus:ring-electric-cyan rounded-sm shrink-0"
           aria-label="ARASS Home"
         >
-          <div className="relative w-24 sm:w-28 md:w-36 h-6 sm:h-7 md:h-8 transition-transform duration-300 group-hover:scale-105">
+          <div className="relative w-32 sm:w-36 md:w-44 h-8 sm:h-9 md:h-10 transition-transform duration-300 group-hover:scale-105">
             <Image
               src="/brand/arass-logo.png"
               alt="ARASS Logo"
