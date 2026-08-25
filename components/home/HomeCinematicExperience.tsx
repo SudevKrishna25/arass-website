@@ -14,11 +14,8 @@ import {
   Cpu,
   Layers,
   Network,
-  Shield,
   Sparkles,
-  Zap,
   Activity,
-  Compass,
   CheckCircle2,
 } from 'lucide-react';
 
@@ -36,15 +33,11 @@ const CAPABILITY_WORLDS = [
       'Architectures engineered to integrate multimodal perception, deterministic reasoning, and enterprise-grade models directly into production environments.',
     href: '/services',
     image: '/images/arass_discovery_quantum_cleanroom.jpg',
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-micro-controller-4286-large.mp4',
     metrics: [
       { label: 'LATENCY', value: '< 12ms', desc: 'Sub-second Finality' },
       { label: 'ACCURACY', value: '99.98%', desc: 'Deterministic Reasoning' },
       { label: 'TOPOLOGY', value: 'Multi-Modal', desc: 'Tensor Mesh Pipeline' },
-    ],
-    features: [
-      'Multi-modal perceptual vision & audio pipelines',
-      'Deterministic neural reasoning with zero-hallucination enclaves',
-      'Distributed model sharding on edge compute networks',
     ],
   },
   {
@@ -56,15 +49,11 @@ const CAPABILITY_WORLDS = [
       'Fault-tolerant web applications, operational cloud consoles, and distributed data systems built with uncompromising engineering discipline.',
     href: '/work',
     image: '/images/arass_frontier_build_lab.jpg',
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-server-room-rack-lights-blinking-4293-large.mp4',
     metrics: [
       { label: 'THROUGHPUT', value: '100k+ TPS', desc: 'Concurrent Transactions' },
-      { label: 'AVAILABILITY', value: '99.999%', desc: 'Self-Healing Cloud Mesh' },
-      { label: 'SECURITY', value: 'AES-256', desc: 'Military Grade Encryption' },
-    ],
-    features: [
-      'High-throughput state consensus & transactional engines',
-      'Geo-replicated resilient microservices architecture',
-      'Spatial UX consoles designed for extreme cognitive clarity',
+      { label: 'AVAILABILITY', value: '99.999%', desc: 'Self-Healing Mesh' },
+      { label: 'SECURITY', value: 'AES-256', desc: 'Zero Trust Enclaves' },
     ],
   },
   {
@@ -76,15 +65,11 @@ const CAPABILITY_WORLDS = [
       'Coordinated agent workflows, automated data ingestion pipelines, and systems integration designed to eliminate friction in complex organizations.',
     href: '/services',
     image: '/images/arass_mission_infrastructure.jpg',
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-matrix-style-code-screen-animation-4279-large.mp4',
     metrics: [
-      { label: 'EFFICIENCY', value: '85%+', desc: 'Operational Friction Reduction' },
-      { label: 'ORCHESTRATION', value: 'DAG Consensus', desc: 'Self-Steering Agent Mesh' },
+      { label: 'EFFICIENCY', value: '85%+', desc: 'Friction Reduction' },
+      { label: 'ORCHESTRATION', value: 'DAG Mesh', desc: 'Self-Steering Agents' },
       { label: 'INGESTION', value: 'Real-Time', desc: 'Zero-Buffering Pipelines' },
-    ],
-    features: [
-      'Hierarchical agent networks with verifiable consensus',
-      'Autonomous error-recovery & event-driven ingestion streams',
-      'Enterprise systems bridge for frictionless legacy migration',
     ],
   },
   {
@@ -96,15 +81,11 @@ const CAPABILITY_WORLDS = [
       'Distinctive digital flagship platforms, spatial design systems, and responsive web experiences crafted with refined typographic and visual restraint.',
     href: '/services',
     image: '/images/arass_frontier_atrium.jpg',
+    video: 'https://assets.mixkit.co/videos/preview/mixkit-blue-plexus-mesh-with-depth-of-field-31745-large.mp4',
     metrics: [
-      { label: 'FRAMERATE', value: '60 FPS', desc: 'GPU-Accelerated Choreography' },
-      { label: 'FIDELITY', value: 'Spatial 2.5D', desc: 'Subpixel Depth Parallax' },
-      { label: 'LOAD TIME', value: '< 0.8s', desc: 'Lightweight Asset Matrix' },
-    ],
-    features: [
-      'Bespoke fluid typography and spatial motion choreography',
-      'GPU-accelerated ambient atmospheres & real-time telemetry',
-      'Cross-platform responsiveness calibrated across all viewports',
+      { label: 'FRAMERATE', value: '60 FPS', desc: 'GPU Acceleration' },
+      { label: 'FIDELITY', value: 'Spatial 2.5D', desc: 'Subpixel Depth' },
+      { label: 'LOAD TIME', value: '< 0.8s', desc: 'Optimized Asset Matrix' },
     ],
   },
 ];
@@ -264,8 +245,8 @@ export function HomeCinematicExperience() {
   // =========================================================================
   // Scene 1: Hero Tagline (0.00 -> 0.16)
   const scene1Opacity = progress < 0.12 ? 1 : Math.max(0, 1 - (progress - 0.12) / 0.05);
-  const scene1Y = -Math.max(0, progress - 0.02) * 90;
-  const scene1Scale = 1.0 - Math.max(0, progress - 0.02) * 0.12;
+  const scene1Y = -Math.max(0, progress - 0.02) * 80;
+  const scene1Scale = 1.0 - Math.max(0, progress - 0.02) * 0.1;
 
   // Scene 2: Statement (0.15 -> 0.28)
   const scene2Opacity =
@@ -377,7 +358,7 @@ export function HomeCinematicExperience() {
       {/* Signature ARASS Dynamic Opening Experience */}
       {!introFinished && <ArassOpeningExperience onComplete={() => setIntroFinished(true)} />}
 
-      {/* Futuristic Persistent HUD Telemetry Overlay */}
+      {/* Streamlined, Non-Overlapping HUD Telemetry Layer */}
       <HudTelemetry scrollProgress={progress} onNavigateChapter={navigateToProgress} />
 
       {/* Main 650vh Continuous Cinematic Timeline */}
@@ -391,7 +372,7 @@ export function HomeCinematicExperience() {
           className="w-full h-screen relative overflow-hidden bg-[#01050d] flex items-center justify-center pointer-events-auto"
         >
           {/* ===================================================================
-              BACKGROUND PHOTOGRAPHIC CAMERA PLATES (REAL VISUAL MEDIA)
+              BACKGROUND PHOTOGRAPHIC & VIDEO CAMERA PLATES
               =================================================================== */}
           {/* Plate 1: Global Planetary Earth Orbit */}
           <div
@@ -406,9 +387,9 @@ export function HomeCinematicExperience() {
               alt="ARASS Planetary Atmosphere"
               fill
               priority
-              className="object-cover brightness-40 contrast-125"
+              className="object-cover brightness-45 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/85" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/80 via-transparent to-[#01050d]/80" />
           </div>
 
@@ -426,7 +407,7 @@ export function HomeCinematicExperience() {
               fill
               className="object-cover brightness-35 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/85" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/80 via-transparent to-[#01050d]/80" />
           </div>
 
@@ -444,7 +425,7 @@ export function HomeCinematicExperience() {
               fill
               className="object-cover brightness-35 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/85" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/80 via-transparent to-[#01050d]/80" />
           </div>
 
@@ -462,7 +443,7 @@ export function HomeCinematicExperience() {
               fill
               className="object-cover brightness-35 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/85" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/80 via-transparent to-[#01050d]/80" />
           </div>
 
@@ -480,7 +461,7 @@ export function HomeCinematicExperience() {
               fill
               className="object-cover brightness-35 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/85" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/80 via-transparent to-[#01050d]/80" />
           </div>
 
@@ -498,7 +479,7 @@ export function HomeCinematicExperience() {
               fill
               className="object-cover brightness-35 contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/80" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-transparent to-[#01050d]/85" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/80 via-transparent to-[#01050d]/80" />
           </div>
 
@@ -506,24 +487,18 @@ export function HomeCinematicExperience() {
           <LiveCinematicAtmosphere scrollProgress={progress} />
 
           {/* ===================================================================
-              SCENE 01: HERO WITH EXPANSIVE EDITORIAL LUXURY & TELEMETRY
+              SCENE 01: HERO WITH SPACIOUS LUXURY EDITORIAL TYPOGRAPHY
               =================================================================== */}
           <div
-            className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 text-center will-change-transform"
+            className="absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 pt-10 sm:pt-0 text-center will-change-transform"
             style={{
               opacity: scene1Opacity,
               transform: `translateY(${scene1Y}px) scale(${scene1Scale.toFixed(3)})`,
               pointerEvents: scene1Opacity > 0.3 ? 'auto' : 'none',
             }}
           >
-            <div className="relative max-w-5xl mx-auto flex flex-col items-center justify-center space-y-4 sm:space-y-6">
-              {/* Sovereign System Protocol Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-electric-cyan/30 backdrop-blur-xl shadow-[0_0_20px_rgba(0,212,255,0.15)] text-[10px] sm:text-xs font-mono text-electric-cyan tracking-[0.25em] uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan animate-ping" />
-                <span>ARASS ENGINEERING // GLOBAL CAPABILITY SUITE</span>
-              </div>
-
-              {/* Exact Signature Tagline with Ultra-Bold High-Impact Styling */}
+            <div className="relative max-w-5xl mx-auto flex flex-col items-center justify-center space-y-5 sm:space-y-7">
+              {/* Grand Signature Tagline (Zero Overlap with Header) */}
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] font-heading font-black tracking-[-0.03em] leading-[1.04] text-white select-none">
                 <span className="inline-block transition-transform duration-300 drop-shadow-[0_4px_30px_rgba(0,0,0,0.9)]">
                   WE DON&apos;T FOLLOW
@@ -538,13 +513,13 @@ export function HomeCinematicExperience() {
                 </span>
               </h1>
 
-              {/* High-Tech System Description with Balanced Luxury Whitespace */}
+              {/* High-Tech System Description with Balanced Whitespace */}
               <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base font-sans text-white/80 leading-relaxed font-light drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]">
                 ARASS is an independent technology powerhouse engineering sovereign AI systems,
                 mission-critical digital platforms, multi-agent automation, and sensory digital flagship ecosystems.
               </p>
 
-              {/* Holographic CTAs with Glowing Pulsing Borders */}
+              {/* Holographic CTAs */}
               <div className="pt-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
                 <PageTransitionLink
                   href="/contact"
@@ -558,14 +533,14 @@ export function HomeCinematicExperience() {
                 <button
                   onClick={scrollToFirstWorld}
                   data-cursor="explore"
-                  className="group inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full border border-white/25 hover:border-electric-cyan bg-[#020b18]/70 backdrop-blur-xl text-white font-mono font-medium text-xs sm:text-sm tracking-widest hover:text-electric-cyan transition-all duration-300 hover:bg-[#020b18]/90 shadow-[0_0_20px_rgba(0,0,0,0.6)]"
+                  className="group inline-flex items-center gap-2.5 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full border border-white/20 hover:border-electric-cyan bg-[#020b18]/60 backdrop-blur-xl text-white font-mono font-medium text-xs sm:text-sm tracking-widest hover:text-electric-cyan transition-all duration-300 hover:bg-[#020b18]/80 shadow-[0_0_20px_rgba(0,0,0,0.5)]"
                 >
                   <span>EXPLORE DISCIPLINES</span>
                   <ArrowDownRight className="w-4 h-4 text-electric-cyan transition-transform duration-300 group-hover:translate-y-0.5" />
                 </button>
               </div>
 
-              {/* High-Tech 4-Discipline Status Matrix */}
+              {/* Clean 4-Discipline Indicator Strip */}
               <div className="pt-6 border-t border-white/10 max-w-4xl w-full grid grid-cols-2 md:grid-cols-4 gap-3 text-[10px] sm:text-xs font-mono tracking-wider text-white/70 uppercase">
                 <div className="p-3 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-md flex flex-col items-center gap-1 group hover:border-electric-cyan/40 transition-colors">
                   <div className="flex items-center gap-1.5 text-electric-cyan font-bold">
@@ -611,7 +586,7 @@ export function HomeCinematicExperience() {
             }}
           >
             <div className="relative max-w-5xl mx-auto space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[10px] sm:text-xs font-mono tracking-[0.3em] text-white/60 uppercase">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.03] border border-white/10 text-[10px] sm:text-xs font-mono tracking-[0.3em] text-white/60 uppercase">
                 <span>01 // ARCHITECTURAL THESIS</span>
               </div>
 

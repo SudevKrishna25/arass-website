@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { Activity, Cpu, Radio, Shield, Zap } from 'lucide-react';
+import { Activity, Compass } from 'lucide-react';
 
 interface HudTelemetryProps {
   scrollProgress: number;
@@ -21,90 +21,33 @@ const CHAPTERS = [
 ];
 
 export function HudTelemetry({ scrollProgress, onNavigateChapter }: HudTelemetryProps) {
-  const [fps, setFps] = useState(60);
-  const [timeStr, setTimeStr] = useState('');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    const updateTime = () => {
-      const now = new Date();
-      setTimeStr(
-        now.toTimeString().split(' ')[0] +
-          '.' +
-          Math.floor(now.getMilliseconds() / 100)
-      );
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 100);
-
-    // Simple FPS calculation
-    let frameCount = 0;
-    let lastTime = performance.now();
-    let animId: number;
-    const calcFps = () => {
-      frameCount++;
-      const now = performance.now();
-      if (now - lastTime >= 1000) {
-        setFps(Math.min(60, Math.round((frameCount * 1000) / (now - lastTime))));
-        frameCount = 0;
-        lastTime = now;
-      }
-      animId = requestAnimationFrame(calcFps);
-    };
-    animId = requestAnimationFrame(calcFps);
-
-    return () => {
-      clearInterval(interval);
-      cancelAnimationFrame(animId);
-    };
   }, []);
 
   // Determine active chapter index
   const activeChapterIndex = CHAPTERS.reduce((acc, ch, idx) => {
-    return scrollProgress >= ch.target - 0.06 ? idx : acc;
+    return scrollProgress >= ch.target - 0.05 ? idx : acc;
   }, 0);
 
   if (!mounted) return null;
 
   return (
     <div className="fixed inset-0 pointer-events-none z-30 select-none overflow-hidden font-mono">
-      {/* Top Left Bracket & Core Telemetry */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-8 flex flex-col gap-1 text-[10px] text-white/50">
-        <div className="flex items-center gap-2 text-electric-cyan font-bold tracking-widest uppercase">
-          <span className="w-2 h-2 rounded-full bg-electric-cyan animate-ping" />
-          <span>ARASS // NEURAL HUD v4.9</span>
-          <span className="hidden md:inline-block px-1.5 py-0.5 rounded text-[9px] bg-electric-cyan/10 border border-electric-cyan/30 text-electric-cyan">
-            LIVE SYNC
-          </span>
-        </div>
-        <div className="hidden sm:flex items-center gap-3 text-[9px] tracking-wider text-white/40">
-          <span>LAT: 37.7749° N</span>
-          <span>•</span>
-          <span>LON: 122.4194° W</span>
-          <span>•</span>
-          <span className="text-white/60">SYS_CLK: {timeStr || '12:00:00.0'}</span>
-        </div>
+      {/* Sleek Top Edge 1px Laser Progress Line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/[0.05] z-50">
+        <div
+          className="h-full bg-gradient-to-r from-transparent via-electric-cyan to-white shadow-[0_0_12px_#00d4ff] transition-all duration-75"
+          style={{ width: `${Math.max(1, scrollProgress * 100)}%` }}
+        />
       </div>
 
-      {/* Top Right System Status & Performance Ticker */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-8 flex items-center gap-3 sm:gap-4 text-[10px] text-white/50">
-        <div className="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md">
-          <Cpu className="w-3 h-3 text-electric-cyan" />
-          <span className="text-[9px] tracking-widest text-white/70">
-            GPU ACCELERATED // {fps} FPS
-          </span>
-        </div>
-        <div className="flex items-center gap-1.5 text-electric-cyan text-[10px] tracking-widest">
-          <Activity className="w-3 h-3 animate-pulse" />
-          <span className="font-bold">{(scrollProgress * 100).toFixed(0)}% SCRUB</span>
-        </div>
-      </div>
-
-      {/* Futuristic Right-Side Vertical Chapter Track */}
-      <div className="hidden lg:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col items-end gap-2.5 pointer-events-auto">
-        <div className="text-[9px] text-white/30 tracking-[0.25em] uppercase mb-1 pr-1">
-          CHAPTERS
+      {/* Refined Right-Side Floating Chapter Dial (Unobtrusive & Spacious) */}
+      <div className="hidden xl:flex absolute right-6 top-1/2 -translate-y-1/2 flex-col items-end gap-2 pointer-events-auto">
+        <div className="text-[9px] text-white/30 tracking-[0.25em] uppercase mb-1 pr-1 font-bold">
+          CHAPTER // {CHAPTERS[activeChapterIndex]?.id}
         </div>
         {CHAPTERS.map((ch, idx) => {
           const isActive = idx === activeChapterIndex;
@@ -113,10 +56,10 @@ export function HudTelemetry({ scrollProgress, onNavigateChapter }: HudTelemetry
               key={ch.id}
               onClick={() => onNavigateChapter?.(ch.target)}
               className={cn(
-                'group flex items-center gap-3 px-3 py-1.5 rounded-xl transition-all duration-300',
+                'group flex items-center gap-2.5 px-3 py-1.5 rounded-full transition-all duration-300 backdrop-blur-md',
                 isActive
-                  ? 'bg-electric-cyan/15 border border-electric-cyan/40 shadow-[0_0_15px_rgba(0,212,255,0.25)] text-electric-cyan'
-                  : 'bg-black/20 hover:bg-white/[0.05] border border-white/5 text-white/40 hover:text-white'
+                  ? 'bg-electric-cyan/15 border border-electric-cyan/50 shadow-[0_0_20px_rgba(0,212,255,0.3)] text-electric-cyan'
+                  : 'bg-black/30 hover:bg-white/[0.08] border border-white/5 text-white/40 hover:text-white'
               )}
             >
               <span
@@ -129,10 +72,10 @@ export function HudTelemetry({ scrollProgress, onNavigateChapter }: HudTelemetry
               </span>
               <span
                 className={cn(
-                  'text-[10px] tracking-wider transition-all duration-300',
+                  'text-[9px] tracking-widest transition-all duration-300',
                   isActive
-                    ? 'opacity-100 translate-x-0 font-bold'
-                    : 'opacity-50 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0'
+                    ? 'opacity-100 max-w-[100px] font-bold'
+                    : 'opacity-0 max-w-0 overflow-hidden group-hover:opacity-80 group-hover:max-w-[100px]'
                 )}
               >
                 {ch.name}
@@ -150,41 +93,17 @@ export function HudTelemetry({ scrollProgress, onNavigateChapter }: HudTelemetry
         })}
       </div>
 
-      {/* Bottom Left Status & Protocol Monitor */}
-      <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-8 hidden sm:flex items-center gap-3 text-[9px] tracking-widest text-white/40">
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 backdrop-blur-md">
-          <Shield className="w-3 h-3 text-electric-cyan" />
-          <span className="text-white/70">PROTOCOL: AES-256 ZERO TRUST</span>
-        </div>
-        <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/40 border border-white/10 backdrop-blur-md">
-          <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
-          <span className="text-white/70">BANDWIDTH: 100 GB/S MESH</span>
-        </div>
+      {/* Minimal Bottom Right Timeline Index */}
+      <div className="absolute bottom-6 right-6 hidden md:flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 backdrop-blur-md text-[10px] text-white/50">
+        <Activity className="w-3 h-3 text-electric-cyan animate-pulse" />
+        <span className="tracking-widest font-semibold text-white/70">
+          {(scrollProgress * 100).toFixed(0)}%
+        </span>
+        <span className="text-white/30">|</span>
+        <span className="text-[9px] text-electric-cyan tracking-wider">
+          {CHAPTERS[activeChapterIndex]?.name}
+        </span>
       </div>
-
-      {/* Bottom Right Scroll Scrubber Gauge */}
-      <div className="absolute bottom-4 right-4 sm:bottom-6 sm:right-8 flex items-center gap-3 text-[10px] text-white/50">
-        <div className="flex flex-col items-end gap-1">
-          <div className="flex items-center gap-2">
-            <Zap className="w-3 h-3 text-electric-cyan" />
-            <span className="text-[9px] tracking-widest uppercase text-white/60">
-              TIMELINE TRAVERSE
-            </span>
-          </div>
-          <div className="w-32 sm:w-48 h-1 bg-white/10 rounded-full overflow-hidden border border-white/10">
-            <div
-              className="h-full bg-gradient-to-r from-electric-cyan via-white to-electric-cyan rounded-full transition-all duration-100 shadow-[0_0_8px_#00d4ff]"
-              style={{ width: `${Math.max(2, scrollProgress * 100)}%` }}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* High-Tech Corner HUD Brackets */}
-      <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-electric-cyan/40 pointer-events-none" />
-      <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-electric-cyan/40 pointer-events-none" />
-      <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-electric-cyan/40 pointer-events-none" />
-      <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-electric-cyan/40 pointer-events-none" />
     </div>
   );
 }
