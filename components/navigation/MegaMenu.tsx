@@ -97,9 +97,9 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           {/* Main Content Stage */}
           <div className="relative z-10 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 px-6 sm:px-12 py-8 overflow-y-auto items-center">
             {/* Primary Chapter Links (Left / Center) */}
-            <div className="lg:col-span-7 flex flex-col justify-center space-y-3 sm:space-y-4">
-              <span className="text-[9px] font-mono tracking-[0.35em] text-secondary-text/50 uppercase mb-1 block">
-                PRIMARY DIRECTORIES
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-2 sm:space-y-3">
+              <span className="text-[9px] font-mono tracking-[0.35em] text-secondary-text/60 uppercase mb-1 block">
+                PRIMARY DISCIPLINES & CHAPTERS (01 - 06)
               </span>
               {MAIN_NAV_ITEMS.map((item) => (
                 <div key={item.id} className="group">
@@ -108,20 +108,20 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                     onClick={onClose}
                     onMouseEnter={() => setActiveItem(item)}
                     cursor="explore"
-                    className="flex items-baseline gap-4 sm:gap-6 py-1 text-left transition-all duration-300 focus:outline-none"
+                    className="flex items-baseline gap-3 sm:gap-5 py-0.5 text-left transition-all duration-300 focus:outline-none"
                   >
-                    <span className="text-xs sm:text-sm font-mono text-secondary-text/40 group-hover:text-electric-cyan transition-colors duration-300">
+                    <span className="text-xs font-mono text-secondary-text/50 group-hover:text-electric-cyan transition-colors duration-300">
                       {item.num}
                     </span>
-                    <span className="text-2xl sm:text-4xl xl:text-5xl font-heading font-black tracking-wider text-primary-text/85 group-hover:text-electric-cyan group-hover:translate-x-3 transition-all duration-300">
+                    <span className="text-lg sm:text-2xl xl:text-3xl font-heading font-black tracking-wider text-primary-text/90 group-hover:text-electric-cyan group-hover:translate-x-2 transition-all duration-300">
                       {item.name}
                     </span>
-                    <ArrowUpRight className="w-5 h-5 text-electric-cyan opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
+                    <ArrowUpRight className="w-4 h-4 text-electric-cyan opacity-0 -translate-x-1.5 translate-y-1.5 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300" />
                   </PageTransitionLink>
 
                   {/* Sublinks Row */}
                   {item.sublinks && (
-                    <div className="hidden sm:flex items-center gap-4 pl-10 pt-1 text-[10px] font-mono text-secondary-text/60">
+                    <div className="hidden sm:flex items-center gap-3 pl-8 pt-0.5 text-[9px] font-mono text-secondary-text/60">
                       {item.sublinks.map((sub, sIdx) => (
                         <PageTransitionLink
                           key={sIdx}

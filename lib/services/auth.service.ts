@@ -71,14 +71,19 @@ export class AuthService {
   }
 
   static async login(dto: LoginDTO): Promise<{ user: User; profile: Profile; token: string }> {
-    const user = Array.from(db.users.values()).find((u) => u.email.toLowerCase() === dto.email.toLowerCase());
+    const identifier = (dto.email || (dto as any).username || '').trim().toLowerCase();
+    const user = Array.from(db.users.values()).find((u) => {
+      const uEmail = u.email.toLowerCase();
+      const uName = (u.username || '').toLowerCase();
+      return uEmail === identifier || uName === identifier || uEmail.split('@')[0] === identifier;
+    });
     if (!user) {
-      throw new Error('Invalid email or password.');
+      throw new Error('Invalid username/email or password.');
     }
 
     const isValid = verifyPassword(dto.password, user.passwordHash);
     if (!isValid) {
-      throw new Error('Invalid email or password.');
+      throw new Error('Invalid username/email or password.');
     }
 
     user.lastLoginAt = db.now();

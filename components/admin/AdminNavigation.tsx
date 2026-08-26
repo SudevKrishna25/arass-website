@@ -21,12 +21,12 @@ export function AdminNavigation() {
 
   const navItems = [
     { href: '/admin', label: 'OVERVIEW', icon: LayoutDashboard },
+    { href: '/admin/conference', label: 'CONFERENCE ROOM', icon: ShieldCheck },
+    { href: '/admin/founders', label: '5 FOUNDERS', icon: Users },
     { href: '/admin/events', label: 'EVENTS', icon: Calendar },
     { href: '/admin/content', label: 'WEBSITE CMS', icon: FileText },
     { href: '/admin/media', label: 'MEDIA LIBRARY', icon: ImageIcon },
-    { href: '/admin/users', label: 'USERS & ROLES', icon: Users },
-    { href: '/admin/navigation', label: 'NAVIGATION CMS', icon: NavIcon },
-    { href: '/admin/audit', label: 'AUDIT LOGS', icon: ShieldCheck },
+    { href: '/admin/audit', label: 'SITE EDITS AUDIT', icon: ShieldCheck },
     { href: '/admin/settings', label: 'SETTINGS', icon: Settings },
   ];
 

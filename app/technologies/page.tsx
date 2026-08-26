@@ -131,10 +131,11 @@ export default function TechnologiesPage() {
             alt="ARASS Technology Systems Engineering"
             fill
             priority
-            className="object-cover brightness-50 contrast-125"
+            className="object-cover brightness-[0.20] contrast-125"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background/90" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/90" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(2,9,20,0.5)_0%,_rgba(2,9,20,0.95)_100%)]" />
         </div>
 
         {/* Live Atmosphere Engine */}
@@ -144,23 +145,23 @@ export default function TechnologiesPage() {
           sectionCode="TEC-09"
           stageName="SYSTEMS ENGINEERING"
           coordinates="37.7749° N, 122.4194° W"
-          classification="2D SCHEMATICS // STRICT ZERO-3D ARCHITECTURE"
+          classification="CHAPTER 09 // 2D VECTOR SCHEMATICS"
         />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-electric-cyan/40 bg-[#020b18]/85 backdrop-blur-md text-[10px] font-mono tracking-[0.3em] text-electric-cyan uppercase">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-0.5 rounded-full border border-electric-cyan/40 bg-[#020b18]/85 backdrop-blur-md text-[9px] sm:text-[10px] font-mono tracking-[0.3em] text-electric-cyan uppercase">
             <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan animate-pulse" />
-            CHAPTER 09 // HARDWARE SCHEMATICS
+            CHAPTER 09 // HARDWARE SCHEMATICS & BLUEPRINTS
           </div>
 
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.08] text-primary-text">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-black tracking-tight leading-[1.08] text-primary-text">
             SYSTEMS <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-cyan via-white to-electric-cyan drop-shadow-[0_0_35px_rgba(0,212,255,0.4)]">
               BLUEPRINTS
             </span>
           </h1>
 
-          <p className="max-w-2xl mx-auto text-xs sm:text-sm md:text-base font-sans text-white/85 leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+          <p className="max-w-xl mx-auto text-xs sm:text-sm font-sans text-white/85 leading-relaxed font-normal drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
             Explore 2D interactive system topologies, computational schematics, and thermodynamic flow charts
             across all six operating divisions.
           </p>

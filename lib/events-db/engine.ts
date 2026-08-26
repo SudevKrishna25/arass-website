@@ -92,6 +92,10 @@ class EventsDatabase {
   navigationItems: Map<string, any> = new Map();
   contentRevisions: Map<string, any> = new Map();
 
+  // Founder Executive Conference & Audit Log Store
+  founderConferenceMessages: Map<string, any> = new Map();
+  founderAuditLogs: any[] = [];
+
   private isInitialized = false;
 
   constructor() {

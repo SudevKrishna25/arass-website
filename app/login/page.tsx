@@ -185,15 +185,15 @@ export default function LoginPage() {
               )}
 
               <div>
-                <label className="block text-xs font-mono text-white/70 mb-1">Email Address</label>
+                <label className="block text-xs font-mono text-white/70 mb-1">Username or Email</label>
                 <div className="relative flex items-center">
                   <Mail className="absolute left-3 w-4 h-4 text-white/40" />
                   <input
-                    type="email"
+                    type="text"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="admin@arass.local"
+                    placeholder="Username (e.g. sudevkrishna) or Email"
                     className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-white/15 bg-[#01050d] text-white text-sm font-mono focus:outline-none focus:border-electric-cyan"
                   />
                 </div>
@@ -205,7 +205,7 @@ export default function LoginPage() {
                   {!isRegister && (
                     <Link href="/forgot-password" className="text-[11px] font-mono text-electric-cyan hover:underline">
                       Forgot Password?
-                  </Link>
+                    </Link>
                   )}
                 </div>
                 <div className="relative flex items-center">
@@ -231,18 +231,39 @@ export default function LoginPage() {
                     ? 'AUTHENTICATING...'
                     : isRegister
                     ? 'CREATE ACCOUNT →'
-                    : 'SIGN IN →'}
+                    : 'SIGN IN TO ARASS →'}
                 </button>
               </div>
             </form>
           </div>
 
-          <div className="pt-4 border-t border-white/10 text-center text-xs font-mono text-white/50 space-y-2">
-            <div>
-              Demo Admin: <span className="text-white">admin@arass.local</span> (ARASS@Admin2026!)
+          {/* 5 Sovereign Founders Fast Access */}
+          <div className="pt-4 border-t border-white/10 space-y-2">
+            <div className="text-[10px] font-mono text-electric-cyan uppercase tracking-widest text-center font-bold">
+              ★ FIVE SOVEREIGN FOUNDERS ACCESS
             </div>
-            <div>
-              Demo Participant: <span className="text-white">alex.chen@sovereign-tech.org</span> (Participant@2026!)
+            <div className="grid grid-cols-1 gap-1 text-[11px] font-mono text-white/70">
+              {[
+                { u: 'sudevkrishna', p: 'Arass@123-admin001', n: 'Sudev Krishna (Lead)' },
+                { u: 'abhinavajith', p: 'Arass@123-admin002', n: 'Abhinav Ajith' },
+                { u: 'abelsangeeth', p: 'Arass@123-admin003', n: 'Abel Sangeeth' },
+                { u: 'ryanpaul', p: 'Arass@123-admin004', n: 'Ryan Paul' },
+                { u: 'sanikuttan', p: 'Arass@123-admin005', n: 'Sani Kuttan' },
+              ].map((f) => (
+                <button
+                  key={f.u}
+                  type="button"
+                  onClick={() => {
+                    setEmail(f.u);
+                    setPassword(f.p);
+                    setIsRegister(false);
+                  }}
+                  className="px-3 py-1.5 rounded-lg border border-white/10 hover:border-electric-cyan/50 bg-white/[0.02] flex items-center justify-between text-left transition-colors"
+                >
+                  <span className="text-white font-bold">{f.n}</span>
+                  <span className="text-electric-cyan text-[10px]">Auto-Fill</span>
+                </button>
+              ))}
             </div>
           </div>
         </div>
