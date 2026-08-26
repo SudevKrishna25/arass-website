@@ -236,36 +236,6 @@ export default function LoginPage() {
               </div>
             </form>
           </div>
-
-          {/* 5 Sovereign Founders Fast Access */}
-          <div className="pt-4 border-t border-white/10 space-y-2">
-            <div className="text-[10px] font-mono text-electric-cyan uppercase tracking-widest text-center font-bold">
-              ★ FIVE SOVEREIGN FOUNDERS ACCESS
-            </div>
-            <div className="grid grid-cols-1 gap-1 text-[11px] font-mono text-white/70">
-              {[
-                { u: 'sudevkrishna', p: 'Arass@123-admin001', n: 'Sudev Krishna (Lead)' },
-                { u: 'abhinavajith', p: 'Arass@123-admin002', n: 'Abhinav Ajith' },
-                { u: 'abelsangeeth', p: 'Arass@123-admin003', n: 'Abel Sangeeth' },
-                { u: 'ryanpaul', p: 'Arass@123-admin004', n: 'Ryan Paul' },
-                { u: 'sanikuttan', p: 'Arass@123-admin005', n: 'Sani Kuttan' },
-              ].map((f) => (
-                <button
-                  key={f.u}
-                  type="button"
-                  onClick={() => {
-                    setEmail(f.u);
-                    setPassword(f.p);
-                    setIsRegister(false);
-                  }}
-                  className="px-3 py-1.5 rounded-lg border border-white/10 hover:border-electric-cyan/50 bg-white/[0.02] flex items-center justify-between text-left transition-colors"
-                >
-                  <span className="text-white font-bold">{f.n}</span>
-                  <span className="text-electric-cyan text-[10px]">Auto-Fill</span>
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
       </main>
 
