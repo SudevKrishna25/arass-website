@@ -96,7 +96,7 @@ export default function InsightsPage() {
 
                   <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 rounded bg-[#020b18]/80 border border-electric-cyan/30 text-[9px] font-mono text-electric-cyan tracking-widest uppercase backdrop-blur-md">
                     <span>{article.number}</span>
-                    <span>//</span>
+                    <span>{'//'}</span>
                     <span>{article.domain}</span>
                   </div>
                 </div>

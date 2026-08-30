@@ -20,7 +20,7 @@ test('Capture final presentation screenshots and metrics', async ({ page }) => {
   });
 
   const startTime = Date.now();
-  await page.goto('http://localhost:3001');
+  await page.goto('http://localhost:3000');
   await page.waitForLoadState('networkidle');
   const loadTimeMs = Date.now() - startTime;
 

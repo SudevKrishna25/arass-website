@@ -158,7 +158,7 @@ export default function AdminContentPage() {
             <ShieldAlert className="w-5 h-5 shrink-0" />
             <div>
               <span className="font-bold uppercase">Mandatory Brand Tagline Lock: </span>
-              <span className="text-white font-bold">"WE DON'T FOLLOW THE FUTURE. WE BUILD IT."</span>
+              <span className="text-white font-bold">&quot;WE DON&apos;T FOLLOW THE FUTURE. WE BUILD IT.&quot;</span>
               <span className="text-white/70"> is protected in source code and cannot be overwritten by CMS edits.</span>
             </div>
           </div>

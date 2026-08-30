@@ -340,7 +340,7 @@ export default function EventMicrositePage() {
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-3">
                       <div>
                         <div className="text-[10px] font-mono text-electric-cyan uppercase tracking-wider">
-                          STAGE 0{round.order} // SUBMISSION FORMAT: {round.submissionType}
+                          STAGE 0{round.order} {'//'} SUBMISSION FORMAT: {round.submissionType}
                         </div>
                         <h3 className="text-lg font-heading font-bold text-white">{round.name}</h3>
                       </div>

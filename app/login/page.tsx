@@ -33,10 +33,10 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Google sign-in failed');
       
-      if (data.user?.role === 'SUPER_ADMIN') {
-        router.push('/admin');
-      } else if (data.user?.role === 'ORGANIZER') {
+      if (data.user?.role === 'SUPER_ADMIN' || data.user?.role === 'ORGANIZER') {
         router.push('/organizer/dashboard');
+      } else if (data.user?.role === 'EVALUATOR') {
+        router.push('/judge/dashboard');
       } else {
         router.push('/dashboard');
       }
@@ -64,10 +64,10 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Authentication failed');
 
-      if (data.user?.role === 'SUPER_ADMIN') {
-        router.push('/admin');
-      } else if (data.user?.role === 'ORGANIZER') {
+      if (data.user?.role === 'SUPER_ADMIN' || data.user?.role === 'ORGANIZER') {
         router.push('/organizer/dashboard');
+      } else if (data.user?.role === 'EVALUATOR') {
+        router.push('/judge/dashboard');
       } else {
         router.push('/dashboard');
       }
@@ -166,7 +166,7 @@ export default function LoginPage() {
               <div className="flex-1 h-px bg-white/10" />
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form noValidate onSubmit={handleSubmit} className="space-y-4">
               {isRegister && (
                 <div>
                   <label className="block text-xs font-mono text-white/70 mb-1">Full Name</label>
@@ -174,6 +174,7 @@ export default function LoginPage() {
                     <User className="absolute left-3 w-4 h-4 text-white/40" />
                     <input
                       type="text"
+                      name="name"
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -189,7 +190,8 @@ export default function LoginPage() {
                 <div className="relative flex items-center">
                   <Mail className="absolute left-3 w-4 h-4 text-white/40" />
                   <input
-                    type="text"
+                    type="email"
+                    name="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

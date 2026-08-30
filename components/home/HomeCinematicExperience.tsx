@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { PageTransitionLink } from '@/components/cinematic/PageTransitionLink';
 import { LiveCinematicAtmosphere } from '@/components/cinematic/LiveCinematicAtmosphere';
+import { LuxuryFlowBackground } from '@/components/cinematic/LuxuryFlowBackground';
 import { HudTelemetry } from '@/components/cinematic/HudTelemetry';
 import { ArassOpeningExperience } from '@/components/cinematic/ArassOpeningExperience';
 import {
@@ -32,7 +33,7 @@ const CAPABILITY_WORLDS = [
     description:
       'Architectures engineered to integrate multimodal perception, deterministic reasoning, and enterprise-grade models directly into production environments.',
     href: '/services',
-    image: '/images/arass_discovery_quantum_cleanroom.jpg',
+    image: '/images/arass_luxury_neural_flow.jpg',
     video: 'https://assets.mixkit.co/videos/preview/mixkit-circuit-board-micro-controller-4286-large.mp4',
     metrics: [
       { label: 'LATENCY', value: '< 45ms', desc: 'P99 Edge Inference' },
@@ -48,7 +49,7 @@ const CAPABILITY_WORLDS = [
     description:
       'Fault-tolerant web applications, operational cloud consoles, and distributed data systems built with uncompromising engineering discipline.',
     href: '/work',
-    image: '/images/arass_frontier_build_lab.jpg',
+    image: '/images/arass_luxury_monolith_mesh.jpg',
     video: 'https://assets.mixkit.co/videos/preview/mixkit-server-room-rack-lights-blinking-4293-large.mp4',
     metrics: [
       { label: 'THROUGHPUT', value: '12.5k RPS', desc: 'Sustained Peak Load' },
@@ -80,7 +81,7 @@ const CAPABILITY_WORLDS = [
     description:
       'Distinctive digital flagship platforms, spatial design systems, and responsive web experiences crafted with refined typographic and visual restraint.',
     href: '/services',
-    image: '/images/arass_frontier_atrium.jpg',
+    image: '/images/arass_luxury_spatial_core.jpg',
     video: 'https://assets.mixkit.co/videos/preview/mixkit-blue-plexus-mesh-with-depth-of-field-31745-large.mp4',
     metrics: [
       { label: 'FRAMERATE', value: '60 FPS', desc: 'Hardware Acceleration' },
@@ -374,7 +375,7 @@ export function HomeCinematicExperience() {
           {/* ===================================================================
               BACKGROUND PHOTOGRAPHIC & VIDEO CAMERA PLATES
               =================================================================== */}
-          {/* Plate 1: Planetary Horizon */}
+          {/* Plate 1: Hero Core Architectural Realm */}
           <div
             className="absolute inset-0 z-0 will-change-transform"
             style={{
@@ -383,18 +384,18 @@ export function HomeCinematicExperience() {
             }}
           >
             <Image
-              src="/images/arass_horizon_planetary_orbit.jpg"
-              alt="ARASS Planetary Atmosphere"
+              src="/images/arass_luxury_hero_core.jpg"
+              alt="ARASS Luxury Spatial Core"
               fill
               priority
-              className="object-cover brightness-[0.22] contrast-125"
+              className="object-cover brightness-[0.38] contrast-125 saturate-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/80 to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/90 via-transparent to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(1,5,13,0.5)_0%,_rgba(1,5,13,0.95)_100%)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/60 to-[#01050d]/80" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/85 via-transparent to-[#01050d]/85" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,212,255,0.06)_0%,_rgba(1,5,13,0.92)_100%)]" />
           </div>
 
-          {/* Plate 2: Quantum Cleanroom (AI Systems) */}
+          {/* Plate 2: Neural Flow Stream (AI Systems) */}
           <div
             className="absolute inset-0 z-1 will-change-transform"
             style={{
@@ -403,17 +404,17 @@ export function HomeCinematicExperience() {
             }}
           >
             <Image
-              src="/images/arass_discovery_quantum_cleanroom.jpg"
-              alt="ARASS Quantum Cleanroom"
+              src="/images/arass_luxury_neural_flow.jpg"
+              alt="ARASS Neural Flow"
               fill
-              className="object-cover brightness-[0.18] contrast-125"
+              className="object-cover brightness-[0.36] contrast-125 saturate-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/85 to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/90 via-transparent to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(1,5,13,0.6)_0%,_rgba(1,5,13,0.96)_100%)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/65 to-[#01050d]/85" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/85 via-transparent to-[#01050d]/85" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,212,255,0.08)_0%,_rgba(1,5,13,0.94)_100%)]" />
           </div>
 
-          {/* Plate 3: Frontier Build Lab (Digital Products) */}
+          {/* Plate 3: Monolith Mesh (Digital Products) */}
           <div
             className="absolute inset-0 z-2 will-change-transform"
             style={{
@@ -422,14 +423,14 @@ export function HomeCinematicExperience() {
             }}
           >
             <Image
-              src="/images/arass_frontier_build_lab.jpg"
-              alt="ARASS Frontier Build Lab"
+              src="/images/arass_luxury_monolith_mesh.jpg"
+              alt="ARASS Sovereign Monolith Mesh"
               fill
-              className="object-cover brightness-[0.18] contrast-125"
+              className="object-cover brightness-[0.35] contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/85 to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/90 via-transparent to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(1,5,13,0.6)_0%,_rgba(1,5,13,0.96)_100%)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/70 to-[#01050d]/85" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/85 via-transparent to-[#01050d]/85" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,212,255,0.05)_0%,_rgba(1,5,13,0.94)_100%)]" />
           </div>
 
           {/* Plate 4: Mission Infrastructure (Automation) */}
@@ -444,14 +445,14 @@ export function HomeCinematicExperience() {
               src="/images/arass_mission_infrastructure.jpg"
               alt="ARASS Mission Infrastructure"
               fill
-              className="object-cover brightness-[0.18] contrast-125"
+              className="object-cover brightness-[0.25] contrast-125"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/85 to-[#01050d]/90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/75 to-[#01050d]/90" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/90 via-transparent to-[#01050d]/90" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(1,5,13,0.6)_0%,_rgba(1,5,13,0.96)_100%)]" />
           </div>
 
-          {/* Plate 5: Sensory Atrium (Digital Experiences) */}
+          {/* Plate 5: Spatial Core (Digital Experiences) */}
           <div
             className="absolute inset-0 z-4 will-change-transform"
             style={{
@@ -460,14 +461,14 @@ export function HomeCinematicExperience() {
             }}
           >
             <Image
-              src="/images/arass_frontier_atrium.jpg"
-              alt="ARASS Sensory Atrium"
+              src="/images/arass_luxury_spatial_core.jpg"
+              alt="ARASS Spatial Core"
               fill
-              className="object-cover brightness-[0.18] contrast-125"
+              className="object-cover brightness-[0.38] contrast-125 saturate-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/85 to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/90 via-transparent to-[#01050d]/90" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(1,5,13,0.6)_0%,_rgba(1,5,13,0.96)_100%)]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/65 to-[#01050d]/85" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/85 via-transparent to-[#01050d]/85" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(0,212,255,0.08)_0%,_rgba(1,5,13,0.94)_100%)]" />
           </div>
 
           {/* Plate 6: Institutional Monolith (Work Reel & Final Conclusion) */}
@@ -482,12 +483,15 @@ export function HomeCinematicExperience() {
               src="/images/arass_institutional_monolith.jpg"
               alt="ARASS Institutional Monolith"
               fill
-              className="object-cover brightness-[0.18] contrast-125"
+              className="object-cover brightness-[0.22] contrast-125"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#01050d] via-[#01050d]/85 to-[#01050d]/90" />
             <div className="absolute inset-0 bg-gradient-to-r from-[#01050d]/90 via-transparent to-[#01050d]/90" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(1,5,13,0.6)_0%,_rgba(1,5,13,0.96)_100%)]" />
           </div>
+
+          {/* Procedural Luxury Flow Canvas: Multi-Harmonic Ribbons & Photonic Sparkles */}
+          <LuxuryFlowBackground scrollProgress={progress} intensity={1.15} />
 
           {/* Live Interactive 2D Atmosphere with Ambient Photon Light Aura & Connective Filaments */}
           <LiveCinematicAtmosphere scrollProgress={progress} />
@@ -616,7 +620,7 @@ export function HomeCinematicExperience() {
                     className="p-3.5 rounded-xl bg-black/60 border border-white/15 backdrop-blur-xl hover:border-electric-cyan/50 transition-all duration-300 group"
                   >
                     <div className="text-[9px] text-electric-cyan tracking-widest mb-0.5 font-bold">
-                      {cap.code} //
+                      {cap.code} {'//'}
                     </div>
                     <div className="text-xs sm:text-sm font-bold text-white group-hover:text-electric-cyan transition-colors mb-1">
                       {cap.title}
@@ -904,7 +908,7 @@ export function HomeCinematicExperience() {
                     className="p-4 rounded-xl bg-black/75 border border-white/15 backdrop-blur-2xl hover:border-electric-cyan transition-all duration-300 group shadow-[0_8px_32px_rgba(0,0,0,0.6)] hover:shadow-[0_0_30px_rgba(0,212,255,0.25)] hover:-translate-y-1"
                   >
                     <div className="flex items-center justify-between text-[9px] font-mono text-electric-cyan tracking-widest uppercase mb-1.5">
-                      <span>{build.code} // {build.type}</span>
+                      <span>{build.code} {'//'} {build.type}</span>
                       <span className="px-1.5 py-0.5 rounded text-[8px] bg-electric-cyan/10 border border-electric-cyan/30">
                         {build.tag}
                       </span>

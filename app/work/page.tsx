@@ -167,7 +167,7 @@ export default function WorkPage() {
                 {project.category}
               </span>
               <span className="text-xs font-mono text-white/70">
-                0{idx + 1} // CASE STUDY
+                0{idx + 1} {'//'} CASE STUDY
               </span>
             </div>
 

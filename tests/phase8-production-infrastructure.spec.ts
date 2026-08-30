@@ -232,7 +232,7 @@ test.describe('ARASS EVENTS // Phase 8: Real Production Infrastructure & Launch 
   });
 
   test('19. SSRF Protection: Private IP & Localhost Interception', async () => {
-    const { validateSafeUrl } = await import('../lib/security/ssrf.ts');
+    const { validateSafeUrl } = await import('../lib/security/ssrf');
     expect(validateSafeUrl('http://127.0.0.1:8080/admin').valid).toBe(false);
     expect(validateSafeUrl('http://localhost:3000').valid).toBe(false);
     expect(validateSafeUrl('http://169.254.169.254/latest/meta-data/').valid).toBe(false);
@@ -241,7 +241,7 @@ test.describe('ARASS EVENTS // Phase 8: Real Production Infrastructure & Launch 
   });
 
   test('20. XSS & User Input Sanitization', async () => {
-    const { sanitizeInput } = await import('../lib/security/sanitize.ts');
+    const { sanitizeInput } = await import('../lib/security/sanitize');
     const dirty = '<script>alert("xss")</script><iframe src="evil.com"></iframe>Clean text';
     const clean = sanitizeInput(dirty);
     expect(clean).not.toContain('<script>');

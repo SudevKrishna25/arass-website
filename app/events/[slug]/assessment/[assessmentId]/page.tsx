@@ -192,7 +192,7 @@ export default function AssessmentTestingRoomPage() {
                 <div className="p-6 sm:p-8 rounded-3xl border border-white/15 bg-[#020b18]/85 backdrop-blur-2xl space-y-6">
                   <div className="flex items-center justify-between border-b border-white/10 pb-3">
                     <span className="text-xs font-mono text-electric-cyan font-bold uppercase">
-                      QUESTION {currentIndex + 1} OF {questions.length} // {currentQ.type} [{currentQ.marks} PTS]
+                      QUESTION {currentIndex + 1} OF {questions.length} {'//'} {currentQ.type} [{currentQ.marks} PTS]
                     </span>
 
                     <button

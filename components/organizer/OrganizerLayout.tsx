@@ -16,9 +16,11 @@ import {
   Sparkles,
   Plus,
   Bell,
-  Layers,
   Award,
+  Layers,
+  Users,
 } from 'lucide-react';
+import { ArassBrandLogo } from '@/components/ui/ArassBrandLogo';
 
 interface OrganizerLayoutProps {
   children: React.ReactNode;
@@ -84,9 +86,9 @@ export function OrganizerLayout({ children }: OrganizerLayoutProps) {
         <div className="space-y-6">
           {/* Brand */}
           <Link href="/organizer/dashboard" className="flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-electric-cyan animate-pulse" />
-            <span className="font-heading font-black tracking-wider text-lg text-white">
-              ARASS <span className="text-electric-cyan font-mono text-xs px-1.5 py-0.5 rounded border border-electric-cyan/30 bg-electric-cyan/10">OPS</span>
+            <ArassBrandLogo size="md" />
+            <span className="text-electric-cyan font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border border-electric-cyan/30 bg-electric-cyan/10">
+              OPS
             </span>
           </Link>
 
@@ -158,8 +160,10 @@ export function OrganizerLayout({ children }: OrganizerLayoutProps) {
       {/* Mobile Header */}
       <div className="md:hidden flex items-center justify-between p-4 border-b border-white/10 bg-[#020b18]/90">
         <Link href="/organizer/dashboard" className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-electric-cyan" />
-          <span className="font-heading font-bold text-white text-base">ARASS OPS</span>
+          <ArassBrandLogo size="sm" />
+          <span className="text-electric-cyan font-mono text-[9px] font-bold px-1.5 py-0.5 rounded border border-electric-cyan/30 bg-electric-cyan/10">
+            OPS
+          </span>
         </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}

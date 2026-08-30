@@ -167,9 +167,9 @@ export default function VenturesPage() {
                 <div>
                   <div className="flex items-center gap-2 text-[10px] font-mono text-electric-cyan tracking-widest uppercase mb-1">
                     <span>{selectedVenture.code}</span>
-                    <span>//</span>
+                    <span>{'//'}</span>
                     <span>{selectedVenture.domain}</span>
-                    <span>//</span>
+                    <span>{'//'}</span>
                     <span className="text-white font-bold">{selectedVenture.readinessLevel}</span>
                   </div>
                   <h2 className="text-3xl sm:text-5xl font-heading font-black text-primary-text">

@@ -15,6 +15,7 @@ import {
   ExternalLink,
   Lock,
 } from 'lucide-react';
+import { ArassBrandLogo } from '@/components/ui/ArassBrandLogo';
 
 export function AdminNavigation() {
   const pathname = usePathname();
@@ -35,10 +36,10 @@ export function AdminNavigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand & Badge */}
         <div className="flex items-center gap-4">
-          <Link href="/admin" className="flex items-center gap-2">
-            <span className="font-heading font-black text-lg text-white tracking-wider">ARASS</span>
+          <Link href="/admin" className="flex items-center gap-3">
+            <ArassBrandLogo size="md" />
             <span className="text-[10px] font-mono px-2 py-0.5 rounded border border-electric-cyan/40 bg-electric-cyan/10 text-electric-cyan font-bold tracking-widest uppercase">
-              ADMIN CONTROL SYSTEM
+              ADMIN
             </span>
           </Link>
         </div>

@@ -210,7 +210,7 @@ export default function EcosystemPage() {
               {/* Badges */}
               <div className="absolute top-6 left-6 flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#020b18]/80 border border-electric-cyan/40 text-[10px] font-mono text-electric-cyan tracking-widest uppercase backdrop-blur-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-electric-cyan animate-pulse" />
-                <span>{activeSystem.code} // ACTIVE TELEMETRY</span>
+                <span>{activeSystem.code} {'//'} ACTIVE TELEMETRY</span>
               </div>
             </div>
 
@@ -218,7 +218,7 @@ export default function EcosystemPage() {
             <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between space-y-8 bg-[#020b18]/90 backdrop-blur-md">
               <div className="space-y-4">
                 <div className="text-[10px] font-mono tracking-[0.3em] text-electric-cyan uppercase">
-                  SYSTEM {activeSystem.num} // ARCHITECTURAL DOSSIER
+                  SYSTEM {activeSystem.num} {'//'} ARCHITECTURAL DOSSIER
                 </div>
                 <h2 className="text-2xl sm:text-4xl font-heading font-black tracking-tight text-primary-text">
                   {activeSystem.name}

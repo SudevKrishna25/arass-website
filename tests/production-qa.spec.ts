@@ -14,8 +14,8 @@ test.describe('ARASS Production QA & Interactions Suite', () => {
     await expect(menuDialog).toBeVisible({ timeout: 5000 });
 
     // Verify links exist
-    await expect(menuDialog.getByRole('link', { name: /MISSION/i })).toBeVisible();
-    await expect(menuDialog.getByRole('link', { name: /DISCOVERY/i })).toBeVisible();
+    await expect(menuDialog.getByRole('link', { name: /WORK/i }).first()).toBeVisible();
+    await expect(menuDialog.getByRole('link', { name: /SOLUTIONS/i }).first()).toBeVisible();
 
     // Press Escape to close
     await page.keyboard.press('Escape');
@@ -40,7 +40,7 @@ test.describe('ARASS Production QA & Interactions Suite', () => {
   test('Insights dossier modal opens and displays full whitepaper sections', async ({ page }) => {
     await page.goto('/insights', { waitUntil: 'networkidle' });
 
-    const firstArticle = page.getByText('THE NEXT ENERGY ARCHITECTURE');
+    const firstArticle = page.getByText('THE CRISIS OF DETERMINISM IN AUTONOMOUS SYSTEMS');
     await expect(firstArticle).toBeVisible();
     await firstArticle.click();
 

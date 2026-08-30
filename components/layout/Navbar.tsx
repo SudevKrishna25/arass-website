@@ -8,6 +8,7 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { NAV_LINKS } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { useSmoothScroll } from '@/components/animation/SmoothScrollProvider';
+import { ArassBrandLogo } from '@/components/ui/ArassBrandLogo';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -111,15 +112,7 @@ export function Navbar() {
           className="flex items-center gap-3 group focus:outline-none focus:ring-1 focus:ring-electric-cyan rounded-sm shrink-0"
           aria-label="ARASS Home"
         >
-          <div className="relative w-32 sm:w-36 md:w-44 h-8 sm:h-9 md:h-10 transition-transform duration-300 group-hover:scale-105">
-            <Image
-              src="/brand/arass-logo.png"
-              alt="ARASS Logo"
-              fill
-              priority
-              className="object-contain filter drop-shadow-[0_0_15px_rgba(0,212,255,0.45)]"
-            />
-          </div>
+          <ArassBrandLogo size="md" />
         </Link>
 
         {/* Minimal Luxury Navigation Links */}

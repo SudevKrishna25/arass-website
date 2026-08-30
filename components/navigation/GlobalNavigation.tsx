@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, ArrowUpRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { MegaMenu } from './MegaMenu';
 import { PageTransitionLink } from '@/components/cinematic/PageTransitionLink';
+import { ArassBrandLogo } from '@/components/ui/ArassBrandLogo';
 
 const PRIMARY_NAV_LINKS = [
   { name: 'WORK', href: '/work' },
@@ -28,20 +28,17 @@ export function GlobalNavigation() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      if (currentScrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
 
-      setScrolled(currentScrollY > 30);
-
-      // Intelligent header hide on scroll down, show on scroll up
-      if (currentScrollY > 150) {
-        if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 8) {
-          setVisible(false);
-        } else if (lastScrollY - currentScrollY > 8) {
-          setVisible(true);
-        }
+      if (currentScrollY > lastScrollY && currentScrollY > 150) {
+        setVisible(false);
       } else {
         setVisible(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -72,15 +69,7 @@ export function GlobalNavigation() {
             className="flex items-center gap-3 group focus:outline-none focus:ring-1 focus:ring-electric-cyan rounded-sm shrink-0"
             aria-label="ARASS Home"
           >
-            <div className="relative w-28 sm:w-32 md:w-36 h-8 sm:h-9 md:h-10 transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src="/brand/arass-logo.png"
-                alt="ARASS Logo"
-                fill
-                priority
-                className="object-contain filter drop-shadow-[0_0_15px_rgba(0,212,255,0.45)]"
-              />
-            </div>
+            <ArassBrandLogo size="md" />
           </PageTransitionLink>
 
           {/* Clean Primary Navigation Links (WORK, SOLUTIONS, PRODUCTS, LAB, COMPANY, INSIGHTS) */}
